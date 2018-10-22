@@ -3,46 +3,40 @@
 #include <stdbool.h>
 #include "TADs/minHeap.h"
 #include "TADs/maxHeap.h"
+#include "TADs/disk.h"
+#include "TADs/backup.h"
 
 int array_max_size;
 int* read_input_file(char* file_name);
 
 
 int main(int argc, char* argv[]){
-    
+
+    //*************************************    TODO verificar se eh preciso mudar implementaçao da max heap
+
+
     int* sizes_array = read_input_file(argv[argc-1]);
     
-    MinHeap* min = minheap_create(array_max_size);
     MaxHeap* max = maxheap_create(array_max_size);
     
+    Backup* bu = backup_create(array_max_size);
+
+    Disk disk = disk_create();
+    maxheap_insert(max, disk_space_left(disk));
+
+    //
     for(int i = 0; i < array_max_size; i++){
-        minheap_insert(min, sizes_array[i]);
-        maxheap_insert(max, sizes_array[i]);
+        
+        
+        
+        
+        
+        // sizes_array[i]
     }
     
-    /****************************************************************/
-    printf("printando tudo MIN HEAP\n");
-    minheap_print(min);
-
-    printf("removendo primeiro MIN HEAP\n");
-    minheap_delmin(min);
-    minheap_print(min);
 
 
-    minheap_destroy(min);
-
-    /****************************************************************/
-
-    printf("printando tudo MAX HEAP\n");
-    maxheap_print(max);
-
-    printf("removendo primeiro MAX HEAP\n");
-    maxheap_delmax(max);
-    maxheap_print(max);
-
-
-    maxheap_destroy(max);
-
+    
     /****************************************************************/
     free(sizes_array);  //frees the array from the problem
 
