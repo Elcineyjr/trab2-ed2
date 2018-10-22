@@ -34,7 +34,7 @@ void minheap_fix_up(MinHeap* heap, int k){
 
 void minheap_fix_down(MinHeap* heap, int k){
     while(2*k <= heap->size){ //while the index is not bigger than the heap size
-        int child = 2*k;    //get child
+        int child = 2*k;    //get the left child
 
         if(child < heap->size && greater(heap->pq[child], heap->pq[child+1]))    //checks which child is smaller
             child++;
@@ -52,7 +52,7 @@ void minheap_fix_down(MinHeap* heap, int k){
 void minheap_insert(MinHeap* heap, Item i){
     heap->size++;     //increments the heap size 
     heap->pq[heap->size] = i;      //insert the item in the end of the heap 
-    minheap_fix_up(heap, heap->size);      //propagates to the top util is heap ordered
+    minheap_fix_up(heap, heap->size);      //propagates to the top until is heap ordered
 }
 
 
