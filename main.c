@@ -1,10 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
-#include "TADs/minHeap.h"
 #include "TADs/maxHeap.h"
-#include "TADs/disk.h"
-#include "TADs/backup.h"
+#include "TADs/worst-fit.h"
 
 int array_max_size;
 int* read_input_file(char* file_name);
@@ -12,39 +10,26 @@ int* read_input_file(char* file_name);
 
 int main(int argc, char* argv[]){
 
-    //*************************************    TODO verificar se eh preciso mudar implementaçao da max heap
-
-
+    //read the input file that contains all sizes from the problem
     int* sizes_array = read_input_file(argv[argc-1]);
-    
-    MaxHeap* max = maxheap_create(array_max_size);
-    
-    Backup* bu = backup_create(array_max_size);
 
-    Disk disk = disk_create();
-    maxheap_insert(max, disk_space_left(disk));
+    //normal worst fit heuristic
+    worst_fit(sizes_array, array_max_size);
 
-    //
-    for(int i = 0; i < array_max_size; i++){
-        
-        
-        
-        
-        
-        // sizes_array[i]
-    }
-    
+    //TODO best fit
 
+    //sorts the array to do the decreasing heuristics
+    qsort(sizes_array, array_max_size, sizeof(int), compare);
 
-    
-    /****************************************************************/
+    //decreasing worst fit
+    worst_fit(sizes_array, array_max_size);
+
+    //TODO decreasing best fit 
+
     free(sizes_array);  //frees the array from the problem
 
     return 0;
 }
-
-
-
 
 
 
