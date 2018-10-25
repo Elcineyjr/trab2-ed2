@@ -1,8 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
-#include "TADs/maxHeap.h"
-#include "TADs/worst-fit.h"
+#include "TADs/binPacking.h"
 
 int array_max_size;
 int* read_input_file(char* file_name);
@@ -16,7 +15,8 @@ int main(int argc, char* argv[]){
     //normal worst fit heuristic
     worst_fit(sizes_array, array_max_size);
 
-    //TODO best fit
+    //best fit
+    best_fit(sizes_array, array_max_size);
 
     //sorts the array to do the decreasing heuristics
     qsort(sizes_array, array_max_size, sizeof(int), compare);
@@ -24,7 +24,8 @@ int main(int argc, char* argv[]){
     //decreasing worst fit
     worst_fit(sizes_array, array_max_size);
 
-    //TODO decreasing best fit 
+    //decreasing best fit 
+    best_fit(sizes_array, array_max_size);
 
     free(sizes_array);  //frees the array from the problem
 

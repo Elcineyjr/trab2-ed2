@@ -15,7 +15,9 @@ void minheap_insert(MinHeap* heap, Item i);
 
 Item minheap_delmin(MinHeap* heap);
 
-Item minheap_get_min(MinHeap* heap);
+Item minheap_get_item(MinHeap* heap, int k);
+
+void minheap_change_item(MinHeap* heap, int k, Item new);
 
 bool minheap_empty(MinHeap* heap);
 

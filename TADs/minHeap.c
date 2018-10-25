@@ -68,9 +68,17 @@ Item minheap_delmin(MinHeap* heap){
 }
 
 
-//returns the top item in the min heap
-Item minheap_get_min(MinHeap* heap){
-    return heap->pq[1];
+//returns the k item in the min heap
+Item minheap_get_item(MinHeap* heap, int k){
+    return heap->pq[k];
+}
+
+
+//change an specific item to a new, and reorder the heap 
+void minheap_change_item(MinHeap* heap, int k, Item new){
+    heap->pq[k] = new;
+    minheap_fix_up(heap, k);
+    minheap_fix_down(heap, k);
 }
 
 
