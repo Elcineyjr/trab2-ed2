@@ -1,5 +1,5 @@
 all:
-	gcc *.c TADs/*.c -o trab2 -Wall -g
+	gcc *.c TADs/*.c -o trab2 -g -O2 -w
 
 clean:
-	rm -f *.o trab2
+	rm -f trab2
