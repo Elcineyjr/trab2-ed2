@@ -4,7 +4,6 @@
 
 //struct to represent a MAX HEAP
 struct max{
-    int max_size;
     Item* pq;       //priority queue to represent the binary heap
     int size;       //current size of the pq
 };
@@ -13,8 +12,6 @@ struct max{
 //creates a new max heap
 MaxHeap* maxheap_create(int max_size){
     MaxHeap* new_maxheap = malloc(sizeof(*new_maxheap));
-
-    new_maxheap->max_size = max_size;           //TODO ver se isso vai ser usado
 
     new_maxheap->pq = malloc((max_size+1) * sizeof(Item));  //malloc an array with max_size+1 cuz the pq starts at 1
 

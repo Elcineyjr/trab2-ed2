@@ -4,7 +4,6 @@
 
 
 struct min{
-    int max_size;
     Item* pq;   //priority queue that represents the binary heap
     int size;      //current size of pq
 };
@@ -13,8 +12,6 @@ struct min{
 //Creates a empty min heap
 MinHeap* minheap_create(int max_size){
     MinHeap* new_minheap = malloc(sizeof(*new_minheap));
-
-    new_minheap->max_size = max_size;               //TODO ver se isso realmente necessario, acho q nunca vou usar
 
     new_minheap->pq = malloc((max_size+1) * sizeof(int));   //mallocs the pq with max_size+1 cuz its starts from 1
 
@@ -77,8 +74,8 @@ Item minheap_get_item(MinHeap* heap, int k){
 //change an specific item to a new, and reorder the heap 
 void minheap_change_item(MinHeap* heap, int k, Item new){
     heap->pq[k] = new;
-    minheap_fix_up(heap, k);
-    minheap_fix_down(heap, k);
+    minheap_fix_up(heap, k);        //if the new item is less than the previous one, it needs to go up
+    minheap_fix_down(heap, k);      //if its bigger it goes down
 }
 
 

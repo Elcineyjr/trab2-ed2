@@ -57,10 +57,10 @@ void best_fit(int* files_size_array, int array_size){
     for(int i = 0; i < array_size; i++){    
 
         //if the file is bigger than the biggest space left in a disk, creates a new disk 
-        if(files_size_array[i] > minheap_get_item(heap, minheap_size(heap))){   //TODO acho q isso devia dar errado
-            minheap_insert(heap, MAX_SPACE_LEFT - files_size_array[i]);
-            continue;
-        }
+        // if(files_size_array[i] > minheap_get_item(heap, minheap_size(heap))){   //TODO acho q isso devia dar errado
+        //     minheap_insert(heap, MAX_SPACE_LEFT - files_size_array[i]);
+        //     continue;
+        // }
 
         for(int j = 1; j <= minheap_size(heap); j++){ //for every disk of the heap
 
@@ -73,7 +73,7 @@ void best_fit(int* files_size_array, int array_size){
                 goto NEXT_ITERATION;
             }
         }
-        //minheap_insert(heap, MAX_SPACE_LEFT - files_size_array[i]);   //if the file didnt fit in any of the disks, creates a new one
+        minheap_insert(heap, MAX_SPACE_LEFT - files_size_array[i]);   //if the file didnt fit in any of the disks, creates a new one
 
         NEXT_ITERATION: ;
     }
