@@ -4,7 +4,7 @@
 #include "TADs/binPacking.h"
 
 int array_max_size;
-int* read_input_file(char* file_name);
+int* read_input_file(char* file_name);      //declaration of the functions that reads the input file
 
 
 int main(int argc, char* argv[]){
