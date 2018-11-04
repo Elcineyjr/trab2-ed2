@@ -1,0 +1,16 @@
+-------------------------------------------------------------------------------
+                           Number of disks
+                Worst   Best    Worst-Fit     Best-Fit         Running time
+     N          Fit     Fit     Decreasing    Decreasing        (seconds)
+-------------------------------------------------------------------------------
+    100         52      46          45          44                0.001s
+   1000         452     410         398         397               0.008s
+  10000         2671    4144        4024        4017              0.091s
+ 100000         46732   41446       40266       40228             8.465s
+-------------------------------------------------------------------------------
+(Challenge)
+1000000         215910  200830      200144      200143            7m1.054s
+-------------------------------------------------------------------------------
+
+OBS: esses valores do tempo de execução foram realizados na minha maquina pessoal,
+no labgrad obtive 30seg na entrada de 100000 e 21min na entrada de 1000000, aproximadamente.

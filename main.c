@@ -5,7 +5,7 @@
 #include "TADs/sort.h"
 
 int array_max_size;
-int* read_input_file(char* file_name);      //declaration of the functions that reads the input file
+int* read_input_file(char* file_name);      //implementation at the end of file
 
 
 int main(int argc, char* argv[]){
@@ -20,8 +20,7 @@ int main(int argc, char* argv[]){
     best_fit(sizes_array, array_max_size);
 
     //sorts the array to do the decreasing heuristics
-    // qsort(sizes_array, array_max_size, sizeof(int), compare);
-    quick_sort(sizes_array, 0, array_max_size);
+    quick_sort(sizes_array, 0, array_max_size-1);
 
     //decreasing worst fit
     worst_fit(sizes_array, array_max_size);

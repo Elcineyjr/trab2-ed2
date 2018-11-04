@@ -32,17 +32,9 @@ void worst_fit(int* files_size_array, int array_size){
         }
     }
 
-    printf("worst fit %d\n", maxheap_size(heap)); //prints in the screen how many disks were necessary to fit all files
+    printf("%d\n", maxheap_size(heap)); //prints in the screen how many disks were necessary to fit all files
 
     maxheap_destroy(heap);  //destroys the allocated heap
-}
-
-
-int compare(const void* disk1, const void* disk2){
-    int d1 = *(int*)disk1; 
-    int d2 = *(int*)disk2;
-
-    return d2 - d1;
 }
 
 
@@ -55,12 +47,6 @@ void best_fit(int* files_size_array, int array_size){
     minheap_insert(heap, MAX_SPACE_LEFT);   //inserts the first disk
 
     for(int i = 0; i < array_size; i++){    
-
-        //if the file is bigger than the biggest space left in a disk, creates a new disk 
-        // if(files_size_array[i] > minheap_get_item(heap, minheap_size(heap))){   //TODO acho q isso devia dar errado
-        //     minheap_insert(heap, MAX_SPACE_LEFT - files_size_array[i]);
-        //     continue;
-        // }
 
         for(int j = 1; j <= minheap_size(heap); j++){ //for every disk of the heap
 
@@ -78,7 +64,7 @@ void best_fit(int* files_size_array, int array_size){
         NEXT_ITERATION: ;
     }
 
-    printf("best fit %d\n", minheap_size(heap));
+    printf("%d\n", minheap_size(heap));
 
     minheap_destroy(heap);
 }
